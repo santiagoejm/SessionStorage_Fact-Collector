@@ -11,28 +11,26 @@
     <div class="container">
       <div class="app">
         <header>
-          <h2>Enter your Fact</h2>
+          <h2>Collect interesting facts</h2>
+          <h3>Which facts did you learn today?</h3>
         </header>
 
         <form class="form">
-          <legend>What have you learned?</legend>
+          <legend>Enter a question</legend>
           <input
             id="key-question"
             type="text"
-            placeholder=" What...? Who...? Where...?"
+            placeholder=" i.e. What is the capital of Germany?"
           />
 
-          <legend>And the Answer is?</legend>
-          <input
-            id="value-answer"
-            type="text"
-            placeholder=" The Answer is..."
-          />
+          <legend>The answer to the question is?</legend>
+          <input id="value-answer" type="text" placeholder=" i.e. Berlin" />
 
           <input id="submit-form" type="submit" />
         </form>
 
         <div class="display"></div>
+        <button id="reset">Reset</button>
       </div>
     </div>
     <script src="main.js"></script>

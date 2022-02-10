@@ -2,6 +2,7 @@ const keyQuestionInput = document.querySelector("#key-question");
 const valueAnswerInput = document.querySelector("#value-answer");
 const formKeyValue = document.querySelector(".form");
 const displayDiv = document.querySelector(".display");
+const resetBtn = document.querySelector("#reset");
 
 const sessionStorageHandler = (e) => {
   e.preventDefault();
@@ -34,8 +35,14 @@ const displaySessionStorage = () => {
   }
 };
 
+const clearSessionStorage = () => {
+  sessionStorage.clear();
+  displayDiv.innerHTML = "";
+};
+
 window.addEventListener("load", () => {
   displayDiv.innerHTML = "";
   displaySessionStorage();
 });
 formKeyValue.addEventListener("submit", sessionStorageHandler);
+resetBtn.addEventListener("click", clearSessionStorage);
