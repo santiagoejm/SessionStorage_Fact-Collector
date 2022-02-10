@@ -12,26 +12,30 @@ const sessionStorageHandler = (e) => {
       key = `${key}?`;
     }
     sessionStorage.setItem(key, value);
-  } else {
-    return alert("Please introduce both values!");
-  }
 
+    displayDiv.innerHTML = "";
+    displaySessionStorage();
+  } else {
+    alert("Please introduce both values!");
+  }
   keyQuestionInput.value = "";
   valueAnswerInput.value = "";
-
-  displaySessionStorage();
 };
 
 const displaySessionStorage = () => {
-  for (let i = 1; i < sessionStorage.length; i++) {
+  for (let i = 0; i < sessionStorage.length; i++) {
     let sessionKey = sessionStorage.key(i);
     let sessionValue = sessionStorage.getItem(sessionKey);
 
     let list = document.createElement("div");
     displayDiv.append(list);
     list.classList.add("list");
-    list.textContent = `${sessionKey} ${sessionValue}`;
+    list.innerHTML += `${sessionKey} : ${sessionValue}`;
   }
 };
 
+window.addEventListener("load", () => {
+  displayDiv.innerHTML = "";
+  displaySessionStorage();
+});
 formKeyValue.addEventListener("submit", sessionStorageHandler);
